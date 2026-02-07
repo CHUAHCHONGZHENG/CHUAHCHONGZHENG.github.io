@@ -1,25 +1,117 @@
-<html> 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyStream</title>
+    <meta name="description" content="MelodyStream">
+    <meta name="keywords" content="Project Sekai">
 
-<head> 
-<title> My Personal Website </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
+<body>
 
-<body bgcolor="white" text="blue">
-<img src="https://p4.itc.cn/q_70/images03/20221118/ccc7a1b36811433c8422236b49512f02.gif" alt="Girl in a jacket" width="500" height="600">
-<img src="https://s1.aigei.com/src/img/gif/fd/fd2794e10e6a4a6987cb8ad24791ce33.gif?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:NhPDSLxgx0Jw5bwEB5htTL8zo8A=" alt="Girl in a jacket" width="400" height="600">
-<img src="https://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181108/8be30a2dac3c47fe811439d2a52beb2c.gif" alt="Girl in a jacket" width="500" height="600">
-<h1> Sin Chai's Dad </h1>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="display-2">WELCOME TO <strong>PROJECT SEKAI</strong></h1>
+            <p>Choose your favourite album and enjoy the music</p>
+            <div class="scroll-icon">
+                <a href="#artist-grid">↓</a>
+            </div>
+        </div>
+    </section>
 
-This is my first web page and I can say anything I want in here - I do that by putting text or images in the body section - where I'm typing right now :)
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RX7QECNKS8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <main id="artist-grid" class="container-fluid p-0">
+        <div class="row g-0">
+            
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="leo-need.html" class="text-decoration-none">
+                    <img src="image/Leo-need_SEKAI_ALBUM_Vol.1.webp" alt="Leo/need">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Leo-need</h3>
+                            <p>ROCK / POP</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-  gtag('config', 'G-RX7QECNKS8');
-</script>
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="vivid-bad-squad.html" class="text-decoration-none">
+                    <img src="image/Vivid_BAD_SQUAD_SEKAI_ALBUM_Vol.3_Cover_Clean.webp" alt="Vivid BAD SQUAD">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Vivid BAD SQUAD</h3>
+                            <p>STREET / HIP-HOP</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="nightcord.html" class="text-decoration-none">
+                    <img src="image/25-ji_Nightcord_de_SEKAI_ALBUM_Vol_1.webp" alt="25時、ナイトコードで。">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>25時、ナイトコードで。</h3>
+                            <p>DARK POP / ELECTRO</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="mmj.html" class="text-decoration-none">
+                    <img src="image/mmj.webp" alt="MORE MORE JUMP!">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>MORE MORE JUMP!</h3>
+                            <p>IDOL POP</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="wxs.html" class="text-decoration-none">
+                    <img src="image/Wonderlands_x_Showtime_SEKAI_ALBUM_Vol_2.webp" alt="Wonderlands x Showtime">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Wonderlands x Showtime</h3>
+                            <p>MUSICAL / SHOW</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-sm-6 artist-item">
+                <a href="virtual-singer.html" class="text-decoration-none">
+                    <img src="image/Vs_Group.webp" alt="Virtual Singer">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>VIRTUAL SINGER</h3>
+                            <p>VOCALOID</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 YPC College - 6751YCOM Coursework 1 [cite: 5, 42]</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
