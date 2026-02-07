@@ -1,0 +1,236 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('image/Sekai_Single.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 {
+    letter-spacing: 5px;
+    font-weight: 300;
+}
+
+.hero-content strong {
+    font-weight: 800;
+}
+
+.scroll-icon a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+
+.artist-item {
+    position: relative;
+    overflow: hidden;
+    height: 350px; 
+}
+
+.artist-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.artist-item:hover .overlay {
+    opacity: 1;
+}
+
+.artist-item:hover img {
+    transform: scale(1.1);
+}
+
+.text h3 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.text p {
+    color: #ffde00;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.footer {
+    background: #111;
+    color: #666;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+/* 详情页特有样式 [cite: 38] */
+#album-cover {
+    transition: transform 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#album-cover:hover {
+    transform: rotate(2deg) scale(1.02);
+}
+
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.fixed-bottom {
+    z-index: 1050;
+    backdrop-filter: blur(10px);
+}
+
+#main-play-btn {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+/* 全局修复：防止内容被底部播放器遮挡 */
+/* 1. 布局修复：给 body 添加底部内边距，防止内容被常驻播放器遮挡 */
+body {
+    padding-bottom: 120px; /* 预留足够空间给底部播放器 */
+    min-height: 100vh;
+}
+
+/* 2. 详情页通用背景样式 */
+.details-page {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background 0.5s ease;
+}
+
+/* 3. 为每个页面设置独特的背景图 */
+/* 请在对应 HTML 的 body 标签上添加这些 class */
+.bg-leo { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image/area_image_17.png'); }
+.bg-vivid { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image/Vivid_BAD_SQUAD_SEKAI_ALBUM_Vol.3_Cover_Clean.webp'); }
+.bg-nightcord { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/bg-25ji.jpg'); }
+
+/* 底部播放器层级与美化 */
+.fixed-bottom {
+    z-index: 2000;
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+.progress {
+    background-color: #333;
+    border-radius: 5px;
+    overflow: visible; /* 方便以后添加拖动滑块 */
+}
+
+.progress-bar {
+    transition: width 0.1s linear; /* 让进度条移动平滑 */
+}
+
+#current-time, #duration-time {
+    font-family: monospace;
+    min-width: 40px;
+}
+/* 返回按钮固定位置 */
+.back-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 100px;
+    z-index: 3000; /* 确保在最上层 */
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 带有弹性的过渡 */
+}
+
+.back-home-btn img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* 给图标添加阴影增强辨识度 */
+}
+
+/* 交互动画：悬停缩放 */
+.back-home-btn:hover {
+    transform: scale(1.2); /* 悬停时放大 1.2 倍 */
+}
+
+/* 交互动画：点击时轻微缩小反馈 */
+.back-home-btn:active {
+    transform: scale(0.9);
+}
+/* 1. 放大下载按钮并设置 X 轴间距 */
+.download-img-btn {
+    width: 35px;       /* 适当放大的尺寸 */
+    height: 35px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* 2. 移除下载按钮自带的干扰样式 */
+.download-track-btn {
+    text-decoration: none !important;
+    border: none !important;
+    padding: 0;
+    /* 关键：通过固定 margin-right 确保它和播放按钮的距离恒定 */
+    margin-right: 30px !important; 
+    /* 或者使用 width: 60px; text-align: center; 来实现完全垂直对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. 悬停交互动画 */
+.download-track-btn:hover .download-img-btn {
+    transform: scale(1.15); /* 悬停轻微放大 */
+    filter: brightness(1.2);
+}
+
+.download-track-btn:active .download-img-btn {
+    transform: scale(0.9);
+}
+
+/* 确保播放按钮也有固定宽度，防止不同字符宽度导致位移 */
+.play-track-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
