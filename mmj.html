@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More More Jump - Project Sekai | Music Player</title>
+    <meta name="keywords" content="Project Sekai">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RX7QECNKS8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RX7QECNKS8');
+</script>
+</head>
+<body class="bg-dark text-white details-page bg-mmj">
+    <a href="index.html" class="back-home-btn" title="Back to home page">
+        <img src="image/home.png" alt="Home"> </a>
+
+    <div class="container mt-5 pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <img src="image/mmj.webp" id="album-cover" class="img-fluid rounded shadow-lg" alt="album img">
+            </div>
+            <div class="col-md-7 ps-md-5">
+                <h1 id="artist-title" class="display-4 fw-bold">More More Jump</h1>
+                <p class="lead text-warning">IDOL POP</p>
+                <p class="text-secondary">MORE MORE JUMP! is an unlikely idol unit consisting of one persistent dreamer and three girls who had previously retired from the industry. They aim to break the traditional idol mold by performing with a DIY spirit and boundless positivity. Through their efforts, MORE MORE JUMP! hopes to deliver hope and smiles to fans who have lost their way.</p>
+                <button id="random-play-btn" class="btn btn-warning btn-lg px-4 me-2">Play Now</button>
+            </div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <div id="track-list" class="list-group list-group-flush bg-transparent">
+    
+                <div class="list-group-item bg-transparent text-white d-flex align-items-center justify-content-between border-secondary py-3">
+                    <div class="d-flex align-items-center flex-grow-1" style="min-width: 200px;">
+                        <img src="image/Idol Shineitai.png" class="rounded me-3" style="width: 50px;" alt="Idol Shineitai">
+                        <div>
+                            <h6 class="mb-0">Idol Shineitai</h6>
+                            <small class="text-secondary">More More Jump</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link p-0 download-track-btn" 
+                                data-src="audio/Idol Shineitai.mp3" 
+                                title="Download">
+                            <img src="image/download-folder.png" class="download-img-btn" alt="download">
+                        </button>
+                        
+                        <button class="btn btn-sm btn-outline-warning play-track-btn" 
+                                data-src="audio/Idol Shineitai.mp3" 
+                                data-img="image/Idol Shineitai.png" 
+                                data-artist="More More Jump">▶</button>
+                    </div>
+                </div>
+            
+                 <div class="list-group-item bg-transparent text-white d-flex align-items-center justify-content-between border-secondary py-3">
+                    <div class="d-flex align-items-center flex-grow-1" style="min-width: 200px;">
+                        <img src="image/Supernova.png" class="rounded me-3" style="width: 50px;" alt="Supernova">
+                        <div>
+                            <h6 class="mb-0">Supernova</h6>
+                            <small class="text-secondary">More More Jump</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link p-0 download-track-btn" 
+                                data-src="audio/Supernova.mp3" 
+                                title="Download">
+                            <img src="image/download-folder.png" class="download-img-btn" alt="download">
+                        </button>
+                        
+                        <button class="btn btn-sm btn-outline-warning play-track-btn" 
+                                data-src="audio/Supernova.mp3" 
+                                data-img="image/Supernova.png" 
+                                data-artist="More More Jump">▶</button>
+                    </div>
+                </div>
+                
+                <div class="list-group-item bg-transparent text-white d-flex align-items-center justify-content-between border-secondary py-3">
+                    <div class="d-flex align-items-center flex-grow-1" style="min-width: 200px;">
+                        <img src="image/Anti you.png" class="rounded me-3" style="width: 50px;" alt="Anit you">
+                        <div>
+                            <h6 class="mb-0">Anti you</h6>
+                            <small class="text-secondary">More More jump</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link p-0 download-track-btn" 
+                                data-src="audio/Anti you.mp3" 
+                                title="Download">
+                            <img src="image/download-folder.png" class="download-img-btn" alt="download">
+                        </button>
+                        
+                        <button class="btn btn-sm btn-outline-warning play-track-btn" 
+                                data-src="audio/Anti you.mp3" 
+                                data-img="image/Anti you.png" 
+                                data-artist="More More Jump">▶</button>
+                    </div>
+                </div>
+                
+                <div class="list-group-item bg-transparent text-white d-flex align-items-center justify-content-between border-secondary py-3">
+                    <div class="d-flex align-items-center flex-grow-1" style="min-width: 200px;">
+                        <img src="image/More! Jump! More!.png" class="rounded me-3" style="width: 50px;" alt="More! Jump! More!">
+                        <div>
+                            <h6 class="mb-0">More! Jump! More!</h6>
+                            <small class="text-secondary">More More Jump</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link p-0 download-track-btn" 
+                                data-src="audio/More! Jump! More!.mp3" 
+                                title="Download">
+                            <img src="image/download-folder.png" class="download-img-btn" alt="download">
+                        </button>
+                        
+                        <button class="btn btn-sm btn-outline-warning play-track-btn" 
+                                data-src="audio/More! Jump! More!.mp3" 
+                                data-img="image/More! Jump! More!.png" 
+                                data-artist="More More Jump">▶</button>
+                    </div>
+                </div>
+                
+                <div class="list-group-item bg-transparent text-white d-flex align-items-center justify-content-between border-secondary py-3">
+                    <div class="d-flex align-items-center flex-grow-1" style="min-width: 200px;">
+                        <img src="image/Viva happy.png" class="rounded me-3" style="width: 50px;" alt="Viva happy">
+                        <div>
+                            <h6 class="mb-0">Viva happy</h6>
+                            <small class="text-secondary">More More Jump</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link p-0 download-track-btn" 
+                                data-src="audio/Viva happy.mp3" 
+                                title="Download">
+                            <img src="image/download-folder.png" class="download-img-btn" alt="download">
+                        </button>
+                        
+                        <button class="btn btn-sm btn-outline-warning play-track-btn" 
+                                data-src="audio/Viva happy.mp3" 
+                                data-img="image/Viva happy.png" 
+                                data-artist="More More Jump">▶</button>
+                    </div>
+                </div>
+                        </div>
+                        <div class="row mb-5 pb-5">
+                            <div class="col-12">
+                                <h3 class="text-warning mb-4 border-bottom border-warning pb-2">Band Member Biographies</h3>
+                                <div class="accordion accordion-flush" id="memberAccordion">
+                                    
+                                    <div class="accordion-item bg-transparent border-secondary text-white">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#bio1">
+                                                Minori Hanasato (Aspiring Idol)
+                                            </button>
+                                        </h2>
+                                        <div id="bio1" class="accordion-collapse collapse" data-bs-parent="#memberAccordion">
+                                            <div class="accordion-body text-light opacity-75" style="line-height: 1.8;">
+                                                The ultimate dreamer of MORE MORE JUMP!, Minori Hanasato proves that pure effort can turn even the unluckiest girl into a shining idol.
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="accordion-item bg-transparent border-secondary text-white">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#bio2">
+                                                Haruka Kiritani	(Former Top Idol)
+                                            </h2>
+                                        </h2>
+                                        <div id="bio2" class="accordion-collapse collapse" data-bs-parent="#memberAccordion">
+                                            <div class="accordion-body text-light opacity-75" style="line-height: 1.8;">
+                                                The charismatic center of MORE MORE JUMP!, Haruka Kiritani rediscovers her love for the stage by leaving her "perfect" past to find a new, authentic path.
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="accordion-item bg-transparent border-secondary text-white">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#bio3">
+                                                Airi Momoi (Former Idol)
+                                            </button>
+                                        </h2>
+                                        <div id="bio3" class="accordion-collapse collapse" data-bs-parent="#memberAccordion">
+                                            <div class="accordion-body text-light opacity-75" style="line-height: 1.8;">
+                                                The fiery spirit of MORE MORE JUMP!, Airi Momoi uses her veteran idol experience and "tsundere" charm to push the group to professional heights.
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="accordion-item bg-transparent border-secondary text-white">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed bg-dark text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#bio4">
+                                                Shizuku Hinomori (Former Idol)
+                                            </button>
+                                        </h2>
+                                        <div id="bio4" class="accordion-collapse collapse" data-bs-parent="#memberAccordion">
+                                            <div class="accordion-body text-light opacity-75" style="line-height: 1.8;">
+                                                The ethereal beauty of MORE MORE JUMP!, Shizuku Hinomori balances her elegant stage presence with a hilariously clumsy and directionless daily life.
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                </section>      
+            
+                </div>
+        
+    </div>
+    <div class="fixed-bottom bg-black text-white p-3 border-top border-secondary">
+        <div class="container mb-2">
+            <div class="d-flex align-items-center">
+                <span id="current-time" class="small">0:00</span>
+                <div class="progress mx-3 flex-grow-1" style="height: 5px; cursor: pointer;" id="progress-container">
+                    <div id="progress-bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%"></div>
+                </div>
+                <span id="duration-time" class="small">0:00</span>
+            </div>
+        </div>
+        
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="d-flex align-items-center d-none d-md-flex" style="width: 250px;">
+                <img src="image/placeholder.png" id="current-track-img" class="rounded me-3" style="width: 45px;" alt="Now playing">
+                <div>
+                    <div id="current-title" class="small fw-bold">Unkown Song</div>
+                    <div id="current-artist" class="small text-secondary">Select a song</div>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <button class="btn btn-link text-white mx-2 btn-prev"><i class="prev-icon">⏮</i></button>
+                <button id="main-play-btn" class="btn btn-warning rounded-circle mx-2">▶</button>
+                <button class="btn btn-link text-white mx-2 btn-next"><i class="next-icon">⏭</i></button>
+            </div>
+
+            <div class="d-none d-md-block" style="width: 250px; text-align: right;">
+                <span id="mute-btn" style="cursor: pointer; font-size: 1.2rem;" title="Mute">🔊</span>
+                <input type="range" id="volume-control" class="ms-2" 
+                       min="0" max="1" step="0.1" value="0.5" 
+                       style="width: 100px; cursor: pointer; vertical-align: middle;">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
