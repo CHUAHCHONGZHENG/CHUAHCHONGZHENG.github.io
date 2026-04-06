@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURUMI  Store - Merchandise </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Logo"> KURUMI STORE </a>
+        <div class="nav-links">
+            <div onclick="openModal('loginModal')"><i class="fas fa-user"></i> Login / Register</div>
+            <div onclick="openModal('favModal')"><i class="fas fa-heart"></i> Favorites <span class="badge" id="favBadge">0</span></div>
+            <div onclick="openModal('cartModal')"><i class="fas fa-shopping-cart"></i> Cart <span class="badge" id="cartBadge">0</span></div>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #b30000, #4d0000);">
+                <div class="slide-content">
+                    <h2>EXCLUSIVE KURUMI MERCHANDISE</h2>
+                    <p>Unleash your style with our limited edition Date A Live gear. Available now!</p>
+                    <button class="btn btn-add" onclick="window.scrollTo({top: document.getElementById('productGrid').offsetTop - 100, behavior: 'smooth'})">Shop Now</button>
+                </div>
+                <div class="slide-image-wrapper">
+                    <img src="kurumiEbook.jpg" alt="Spring Sale">
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #b30000, #4d0000);">
+                <div class="slide-content">
+                    <h2>NEW ARRIVALS DETECTED</h2>
+                    <p>From premium action figures to exclusive hoodies. Upgrade your anime collection today.</p>
+                    <button class="btn btn-add" onclick="openProductModal(2)">View Details</button>
+                </div>
+                <div class="slide-image-wrapper">
+                    <img src="kurumiStrap.jpg" alt="kurumiStrap">
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #b30000, #4d0000);">
+                <div class="slide-content">
+                    <h2>TIME-LIMITED OFFERS</h2>
+                    <p>Don't miss out! Use voucher code <strong>'SEGA10'</strong> at checkout for exclusive discounts.</p>
+                    <button class="btn btn-add" onclick="openProductModal(3)">Discover</button>
+                </div>
+                <div class="slide-image-wrapper">
+                    <img src="kurumi1.jpg" alt="Yakuza Collection">
+                </div>
+            </div>
+        </div>
+        
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+
+
+    <main>
+        <div class="toolbar">
+            <h2>Featured Products</h2>
+            <div class="toolbar-controls">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search merchandise..." onkeyup="filterAndSortProducts()">
+                </div>
+                <select id="sortSelect" onchange="filterAndSortProducts()">
+                    <option value="default">Sort by: Default</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="name-asc">Name: A to Z</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid" id="productGrid">
+            </div>
+    </main>
+ <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-column brand-col">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Logo"> KURUMI STORE </a>
+            <p>Your ultimate destination for official merchandise, exclusive figures, and classic consoles. Level up your collection today!</p>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Pre-orders</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Customer Support</h3>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Track Order</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column social-col">
+            <h3>Official Community</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://discord.com/"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 KURUMI Official Store. All rights reserved.</p>
+        <p style="color: var(--danger-color); font-weight: bold; margin-top: 10px;">
+            DISCLAIMER: This website is created for educational purposes only as part of the 6751YCOM coursework. No real products are sold, and no real transactions will be processed.
+        </p>
+    </div>
+</footer>
+
+    <div class="modal-overlay" id="productModal">
+        <div class="modal product-modal">
+            <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
+            <div class="product-details-container" id="productDetailsContent">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login / Register</h2>
+            <form onsubmit="event.preventDefault(); showToast('Login successful!', 'success'); closeModal('loginModal');">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required>
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" required>
+                <button type="submit" class="btn-submit">Sign In / Register</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #666;">If you don't have an account, one will be created.</p>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal" style="width: 500px;">
+            <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
+            <h2>Your Cart</h2>
+            
+            <div id="cartControls" class="cart-controls" style="display: none;">
+                <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this.checked)">
+                <label for="selectAllCheckbox">Select All</label>
+            </div>
+
+            <div id="cartItemsContainer"></div>
+            
+            <div class="cart-total" id="cartTotal">Selected Total: RM0.00</div>
+            <button class="btn btn-submit btn-checkout" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="favModal">
+        <div class="modal" style="width: 500px;">
+            <span class="close-btn" onclick="closeModal('favModal')">&times;</span>
+            <h2>Your Favorites</h2>
+            <div id="favItemsContainer"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal checkout-modal">
+            <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
+            <h2>Checkout</h2>
+            <div class="checkout-container">
+                
+                <div class="checkout-form">
+                    <h3>Shipping Address</h3>
+                    <textarea id="shippingAddress" rows="3" placeholder="Enter your full shipping address (e.g., 123 SEGA Street, Gaming City)..." required></textarea>
+
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="TNG" checked> 
+                            <img src="https://via.placeholder.com/30x20/0055A6/fff?text=TNG" alt="TNG" style="border-radius:2px;"> Touch 'n Go eWallet
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="VISA"> 
+                            <img src="https://via.placeholder.com/30x20/1A1F71/fff?text=VISA" alt="VISA" style="border-radius:2px;"> Credit/Debit Card
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="COD"> 
+                            <i class="fas fa-truck" style="width:30px; text-align:center; color:#555;"></i> Cash on Delivery (COD)
+                        </label>
+                    </div>
+
+                    <h3>Remarks for Seller</h3>
+                    <input type="text" id="orderRemarks" placeholder="Any special requests? (e.g., Please pack securely)">
+                </div>
+                
+                <div class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    
+                    <div id="checkoutItemsList" class="checkout-items-list"></div>
+                    <div class="summary-line"><span>Subtotal:</span> <span id="checkoutSubtotal">RM0.00</span></div>
+                    <div class="summary-line"><span>Shipping Fee:</span> <span id="checkoutShipping">RM5.00</span></div>
+                    <div class="summary-line discount-line" id="discountLine"><span>Voucher Discount:</span> <span id="checkoutDiscount">-RM0.00</span></div>
+                    
+                    <div class="voucher-box">
+                        <input type="text" id="voucherCode" placeholder="Enter Code (Try 'SEGA10')">
+                        <button onclick="applyVoucher()">Apply</button>
+                    </div>
+                    
+                    <div class="summary-total"><span>Total Payment:</span> <span id="checkoutFinalTotal">RM0.00</span></div>
+                    <button class="btn btn-submit btn-checkout" onclick="processPayment()">Confirm & Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your order is currently being processed and will be shipped soon.</p>
+            <div class="success-details" id="successDetails">
+                </div>
+            <button class="btn btn-submit" onclick="backToHome()">Back to Home</button>
+        </div>
+    </div>
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
