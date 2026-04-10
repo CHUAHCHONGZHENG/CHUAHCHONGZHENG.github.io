@@ -9,18 +9,17 @@
 body { background-color: var(--secondary-color); color: var(--text-color); }
 a { text-decoration: none; color: inherit; }
 
-/* --- 统一增加网站左右的“呼吸感” (留白) --- */
 header { 
     background-color: #fff; 
-    padding: 20px 4%; /* 边距加大到8% */
+    padding: 20px 4%;
     display: flex; justify-content: space-between; align-items: center; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     position: sticky; top: 0; z-index: 100; 
 }
 
 main { 
-    padding: 40px 4%; /* 边距加大到8% */
-    max-width: 1600px; /* 稍微缩窄内容区，显得更聚拢 */
+    padding: 40px 4%; 
+    max-width: 1600px; 
     margin: auto; 
 }
 
@@ -31,7 +30,7 @@ main {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    width: 92%; /* 与上下内容保持完美对齐 (100% - 8% - 8%) */
+    width: 92%;
 }
 
 .logo { 
@@ -57,7 +56,7 @@ main {
 
 
 /* Main Content & Toolbar */
-/* --- Toolbar & Search Bar (现代化 UI 升级) --- */
+
 .toolbar { 
     display: flex; 
     justify-content: space-between; 
@@ -66,35 +65,34 @@ main {
     background: #fff; 
     padding: 20px 25px; 
     border-radius: 12px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* 增加极其轻微的高级阴影 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     flex-wrap: wrap; 
     gap: 15px;
 }
 
 .toolbar-controls { 
     display: flex; 
-    gap: 20px; /* 拉开搜索框和下拉菜单的间距 */
+    gap: 20px; 
     align-items: center; 
     flex-wrap: wrap; 
 }
 
-/* 1. 搜索框美化 */
 .search-bar {
     display: flex;
     align-items: center;
-    background: #f8f9fa; /* 柔和的浅灰背景 */
-    border: 2px solid #e1e4e8; /* 稍微加粗一点的边框，更有质感 */
-    border-radius: 8px; /* 更圆润的边角 */
+    background: #f8f9fa; 
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
     padding: 0 15px;
     width: 280px;
-    height: 42px; /* 设定固定高度，这是对齐的关键 */
+    height: 42px;
     transition: all 0.3s ease;
 }
 
 .search-bar:focus-within {
     border-color: var(--primary-color);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1); /* 苹果风格的光晕发光效果 */
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
 .search-bar i { 
@@ -103,26 +101,25 @@ main {
     margin-right: 10px; 
 }
 
-/* 强制清除原生的 input 样式 */
 .search-bar input {
     border: none !important; 
     background: transparent !important;
     outline: none !important;
-    flex: 1; /* 让输入框自动填满剩余空间 */
+    flex: 1; 
     font-size: 14px;
     color: var(--text-color);
     padding: 0;
     margin: 0;
     
-    /* 核心修复：删除 height:100%，改为用行高垂直居中 */
+
     line-height: normal;
     height: auto; 
 }
 
-/* 2. 下拉菜单 (Select) 美化 */
+
 #sortSelect {
-    height: 42px; /* 和搜索框保持绝对一样的高度！ */
-    padding: 0 35px 0 15px; /* 右侧留出空间给自定义箭头 */
+    height: 42px;
+    padding: 0 35px 0 15px; 
     font-size: 14px;
     color: var(--text-color);
     background-color: #f8f9fa;
@@ -130,13 +127,11 @@ main {
     border-radius: 8px;
     outline: none;
     cursor: pointer;
-    
-    /* 核心魔法：隐藏原生丑陋的下拉箭头 */
+   
     appearance: none; 
     -webkit-appearance: none;
     -moz-appearance: none;
-    
-    /* 替换为现代化的自定义 SVG 小箭头 */
+
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
     background-position: right 12px center;
@@ -150,19 +145,17 @@ main {
     box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
-/* 将单张幻灯片改成 Flex 布局，实现左右对齐 */
-/* --- 修复：让轮播图横向排列并添加滑动动画 --- */
+
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
 }
 
-/* 为了绝对安全，给 .carousel-slide 加上 flex-shrink: 0 */
 .carousel-slide {
-    flex-shrink: 0; /* 新增这一行，防止被挤压 */
+    flex-shrink: 0;
     min-width: 100%;
-    height: 450px; /* 固定高度 */
+    height: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,7 +163,6 @@ main {
     box-sizing: border-box;
 }
 
-/* 左侧：文字内容区 */
 .slide-content {
     flex: 1;
     max-width: 500px;
@@ -182,30 +174,28 @@ main {
 .slide-content p { margin-bottom: 25px; font-size: 16px; line-height: 1.6; color: #eee; }
 .slide-content .btn { font-size: 16px; padding: 12px 30px; width: auto; font-weight: bold;}
 
-/* 右侧：图片展示框 */
 .slide-image-wrapper {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* 让图片靠右 */
+    justify-content: flex-end; 
     align-items: center;
     height: 100%;
 }
 
 .slide-image-wrapper img {
-    width: 360px; /* 控制方形图的固定大小 */
+    width: 360px; 
     height: 360px;
-    object-fit: contain; /* 保证图片绝不被裁剪 */
+    object-fit: contain; 
     border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4); /* 给图片加一个高级的悬浮立体阴影 */
-    background: #fff; /* 防止有些PNG图片是透明底的，加个白底更像实体商品 */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    background: #fff; 
     transition: transform 0.3s ease;
 }
 
 .slide-image-wrapper img:hover {
-    transform: scale(1.03); /* 鼠标放上去商品微微放大互动 */
+    transform: scale(1.03);
 }
 
-/* 左右切换按钮 */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -227,7 +217,7 @@ main {
 .carousel-btn.prev { left: 20px; }
 .carousel-btn.next { right: 20px; }
 
-/* 底部小圆点 */
+
 .carousel-dots {
     position: absolute;
     bottom: 20px;
@@ -246,11 +236,10 @@ main {
 }
 .dot.active, .dot:hover { background-color: #fff; transform: scale(1.3); }
 
-/* Product Grid (恢复商品网格的紧凑感) */
 .grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 稍微调回基础尺寸 */
-    gap: 25px; /* 恢复更紧凑的商品间距，消除零散感 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px; 
 }
 .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; position: relative;}
 .card:hover { transform: translateY(-5px); }
@@ -259,12 +248,11 @@ main {
 .card-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; cursor: pointer; }
 .card-title:hover { color: var(--danger-color); }
 
-/* Pricing Styles (新增) */
+
 .price-container { display: flex; flex-direction: column; margin-bottom: 15px; }
 .discount-price { color: var(--danger-color); font-weight: bold; font-size: 18px; }
 .original-price { color: #888; font-size: 14px; text-decoration: line-through; text-decoration-color: red; margin-top: 2px; }
 
-/* Buttons */
 .card-actions { display: flex; gap: 10px; }
 .btn { flex: 1; padding: 10px; text-align: center; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
 .btn-add { background: var(--danger-color); color: white; }
@@ -272,7 +260,6 @@ main {
 .btn-fav { background: #f0f0f0; color: #333; width: 40px; flex: none; display: flex; justify-content: center; align-items: center; }
 .btn-fav.active { color: var(--danger-color); }
 
-/* Product Details Modal Specific (新增悬浮窗样式) */
 .product-modal { width: 750px; max-width: 95%; }
 .product-details-container { display: flex; gap: 25px; flex-wrap: wrap; }
 .product-details-container img { width: 300px; height: 300px; object-fit: cover; border-radius: 8px; background: #eee; }
@@ -282,18 +269,17 @@ main {
 .product-info .original-price { font-size: 16px; }
 .product-description { margin: 15px 0; color: #555; line-height: 1.6; font-size: 14px; }
 
-/* Quantity Selector (新增数量选择器) */
 .quantity-selector { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
 .qty-btn { background: #ddd; border: none; width: 30px; height: 30px; font-size: 18px; cursor: pointer; border-radius: 4px; display: flex; justify-content: center; align-items: center;}
 .qty-btn:hover { background: #ccc; }
 .qty-input { width: 50px; height: 30px; text-align: center; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; pointer-events: none; }
 
-/* Modals (新增丝滑动画) */
+
 .modal-overlay { 
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
     background: rgba(0,0,0,0.5); 
     display: flex; justify-content: center; align-items: center; z-index: 1000; 
-    /* 动画关键代码 */
+
     opacity: 0; visibility: hidden; transition: all 0.3s ease-in-out;
 }
 .modal-overlay.show {
@@ -303,7 +289,7 @@ main {
 .modal { 
     background: #fff; padding: 30px; border-radius: 8px; width: 400px; max-width: 90%; 
     position: relative; max-height: 80vh; overflow-y: auto;
-    /* 弹窗滑出动画 */
+
     transform: translateY(-30px); transition: transform 0.3s ease-in-out;
 }
 .modal-overlay.show .modal {
@@ -315,15 +301,12 @@ main {
 .modal h2 { margin-bottom: 20px; border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; }
 
 
-/* Forms & Cart Items (更新购物车排版，支持图片和勾选框) */
 input[type="text"], input[type="password"], input[type="email"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; }
 .btn-submit { width: 100%; background: var(--primary-color); color: #fff; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
 
-/* 购物车顶部控制区 */
 .cart-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #eee; cursor: pointer; font-weight: bold; }
 .cart-controls input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
 
-/* 购物车单个物品排版 */
 .cart-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
 .cart-item-checkbox { width: 18px; height: 18px; cursor: pointer; }
 .cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; }
@@ -337,26 +320,24 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 .btn-checkout:hover { background: #219653; }
 .btn-checkout:disabled { background: #ccc; cursor: not-allowed; }
 
-/* Custom Scrollbar for Modals (修复滚动条破坏圆角的问题) */
 .modal::-webkit-scrollbar {
-    width: 8px; /* 让滚动条变细一点 */
+    width: 8px;
 }
 
 .modal::-webkit-scrollbar-track {
-    background: transparent; /* 轨道透明 */
-    margin: 8px 0; /* 让滚动条上下缩进一点，避开圆角区域 */
+    background: transparent;
+    margin: 8px 0;
 }
 
 .modal::-webkit-scrollbar-thumb {
-    background: #ccc; /* 滚动条颜色 */
-    border-radius: 10px; /* 让滚动条自身变成圆角 */
+    background: #ccc; 
+    border-radius: 10px;
 }
 
 .modal::-webkit-scrollbar-thumb:hover {
-    background: #aaa; /* 鼠标悬浮时变深一点 */
+    background: #aaa;
 }
 
-/* --- Checkout Modal Styles (结账界面样式) --- */
 .checkout-modal { width: 800px; max-width: 95%; background: #fff;}
 .checkout-container { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 10px;}
 .checkout-form { flex: 2; min-width: 300px; }
@@ -379,7 +360,6 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 .voucher-box button { background: #333; color: #fff; border: none; padding: 0 15px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.2s;}
 .voucher-box button:hover { background: #000; }
 
-/* --- Success Modal Styles (支付成功界面样式) --- */
 .success-modal { text-align: center; width: 450px; padding: 40px 30px; }
 .success-icon { font-size: 70px; color: #27ae60; margin-bottom: 20px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .success-modal h2 { border-bottom: none; margin-bottom: 10px; color: #27ae60; }
@@ -392,12 +372,12 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* --- Footer Styles (页脚样式) --- */
+
 .site-footer {
-    background-color: #111; /* 深色背景更显高级 */
+    background-color: #111; 
     color: #ccc;
-    padding: 60px 4% 20px; /* 边距加大到8% */
-    margin-top: 60px; /* 和上面的商品区拉开距离 */
+    padding: 60px 4% 20px;
+    margin-top: 60px; 
 }
 
 .footer-container {
@@ -406,7 +386,7 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
-    border-bottom: 1px solid #333; /* 一条暗色的分割线 */
+    border-bottom: 1px solid #333; 
     padding-bottom: 40px;
 }
 
@@ -418,7 +398,7 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 }
 
 .footer-column ul {
-    list-style: none; /* 去掉列表自带的小圆点 */
+    list-style: none; 
 }
 
 .footer-column ul li {
@@ -433,7 +413,7 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 
 .footer-column ul li a:hover, .social-links a:hover {
     color: var(--danger-color);
-    transform: translateX(5px); /* 鼠标放上去有微微向右移的动态效果 */
+    transform: translateX(5px); 
 }
 
 .brand-col .logo {
@@ -455,7 +435,7 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 }
 
 .social-links a i {
-    width: 20px; /* 让图标对齐更好看 */
+    width: 20px;
     margin-right: 8px;
 }
 
@@ -466,16 +446,14 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     color: #666;
 }
 
-/* --- Checkout Items List (结账商品明细样式) --- */
 .checkout-items-list {
-    max-height: 250px; /* 限制高度 */
-    overflow-y: auto;  /* 超过高度可以滚动 */
+    max-height: 250px; 
+    overflow-y: auto; 
     margin-bottom: 20px;
     padding-right: 10px;
     border-bottom: 1px solid #eee;
 }
 
-/* 滚动条美化 */
 .checkout-items-list::-webkit-scrollbar { width: 6px; }
 .checkout-items-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 
@@ -523,7 +501,7 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     font-size: 16px;
 }
 
-/* --- Product Status Badges (商品状态标签) --- */
+
 .status-badge {
     position: absolute;
     top: 10px;
@@ -538,16 +516,14 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 }
 
 .status-badge.sold-out { background-color: #7f8c8d; }
-.status-badge.pre-order { background-color: #f39c12; } /* 橙色代表预售 */
+.status-badge.pre-order { background-color: #f39c12; }
 
-/* 售罄时的图片变灰效果 */
 .img-sold-out { 
     filter: grayscale(100%); 
     opacity: 0.6; 
     cursor: not-allowed !important; 
 }
 
-/* 状态专属按钮样式 */
 .btn-disabled { 
     background: #bdc3c7; 
     color: #fff; 
@@ -584,20 +560,16 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     font-size: 15px;
     font-weight: 500;
     min-width: 280px;
-    
-    /* 滑入动画 */
+
     animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-/* 状态颜色 */
 .toast.success { background-color: #27ae60; border-left: 5px solid #1e8449; }
 .toast.error { background-color: #e74c3c; border-left: 5px solid #c0392b; }
 .toast.info { background-color: #3498db; border-left: 5px solid #2980b9; }
 
-/* 图标大小 */
 .toast i { font-size: 20px; }
 
-/* 动画定义 */
 @keyframes slideInRight {
     from { transform: translateX(120%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
@@ -608,7 +580,56 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
     to { transform: translateX(120%); opacity: 0; }
 }
 
-/* 用于 JavaScript 触发消失动作 */
 .toast.hide {
     animation: slideOutRight 0.4s ease-in forwards;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: default !important;
+}
+
+.user-profile:hover {
+    color: var(--text-color) !important;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-left: 5px;
+}
+
+.btn-logout:hover {
+    background: var(--danger-color);
+    color: white;
 }

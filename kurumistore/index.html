@@ -12,11 +12,18 @@
     <header>
         <a href="#" class="logo">
             <img src="logo.png" alt="Logo"> KURUMI STORE </a>
-        <div class="nav-links">
-            <div onclick="openModal('loginModal')"><i class="fas fa-user"></i> Login / Register</div>
-            <div onclick="openModal('favModal')"><i class="fas fa-heart"></i> Favorites <span class="badge" id="favBadge">0</span></div>
-            <div onclick="openModal('cartModal')"><i class="fas fa-shopping-cart"></i> Cart <span class="badge" id="cartBadge">0</span></div>
-        </div>
+            <div class="nav-links">
+                <div id="loginBtn" onclick="openModal('loginModal')"><i class="fas fa-user"></i> Login / Register</div>
+                
+                <div id="userProfile" class="user-profile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span class="user-name" id="userName">User</span>
+                    <button class="btn-logout" onclick="logout()">Logout</button>
+                </div>
+    
+                <div onclick="openModal('favModal')"><i class="fas fa-heart"></i> Favorites <span class="badge" id="favBadge">0</span></div>
+                <div onclick="openModal('cartModal')"><i class="fas fa-shopping-cart"></i> Cart <span class="badge" id="cartBadge">0</span></div>
+            </div>
     </header>
 
     <div class="hero-banner">
@@ -144,9 +151,9 @@
         <div class="modal">
             <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
             <h2>Login / Register</h2>
-            <form onsubmit="event.preventDefault(); showToast('Login successful!', 'success'); closeModal('loginModal');">
+            <form id="loginForm" onsubmit="handleLogin(event)">
                 <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password" required>
                 <button type="submit" class="btn-submit">Sign In / Register</button>

@@ -48,7 +48,7 @@ let products = [
     { 
         id: 3, 
         name: "Date A Live Kurumi Tokisaki Fantasia 30th Anniversary Ver. 1/7 Scale Figure", 
-        price: 625.00, // 提示：作为1/7比例手办，这个价格可能有点低，如果在报告里要显得真实，建议改成 625.00 之类的
+        price: 625.00, 
         originalPrice: 630.00, 
         img: "kurumi1.jpg", 
         description: "Exquisite 1/7 scale figure of Kurumi Tokisaki, specially designed to commemorate the Fantasia 30th Anniversary. Features stunning details and an elegant pose.", 
@@ -66,7 +66,7 @@ let products = [
     { 
         id: 5, 
         name: "Date A Live Trading Hologram Can Badge ~Lots of Kurumi~", 
-        price: 22.00, // 提示：徽章价格原来标了220，我稍微帮你改合理了一点，你可以根据需要调回去
+        price: 22.00,
         originalPrice: 25.00, 
         img: "kurumibadge.jpg", 
         description: "A gorgeous holographic can badge from the 'Lots of Kurumi' collection. Shines beautifully in the light and is highly collectible.", 
@@ -250,19 +250,17 @@ function addToCartFromModal(id) {
     closeModal('productModal');
 }
 
-// --- Search and Sort Products (联合筛选与排序) ---
+// --- Search and Sort Products ---
 function filterAndSortProducts() {
-    // 1. 获取搜索词和排序选项
+
     const searchQuery = document.getElementById('searchInput').value.toLowerCase();
     const sortVal = document.getElementById('sortSelect').value;
 
-    // 2. 搜索过滤：只要商品名称或描述里包含搜索词，就保留下来
     let filteredProducts = products.filter(p => 
         p.name.toLowerCase().includes(searchQuery) || 
         p.description.toLowerCase().includes(searchQuery)
     );
 
-    // 3. 对过滤后的结果进行排序
     if (sortVal === 'price-asc') {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sortVal === 'price-desc') {
@@ -271,10 +269,8 @@ function filterAndSortProducts() {
         filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    // 4. 渲染到页面
     renderProducts(filteredProducts);
 
-    // 5. UX 优化：如果搜不到任何商品，给出友好提示
     if (filteredProducts.length === 0) {
         document.getElementById('productGrid').innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 50px 0; color: #888;">
@@ -589,3 +585,52 @@ function resetInterval() {
 }
 
 startInterval();
+// --- User Authentication Logic ---
+let currentUser = null;
+
+function handleLogin(event) {
+    event.preventDefault(); 
+
+    const emailInput = document.getElementById('loginEmail').value;
+
+    const username = emailInput.split('@')[0];
+    
+    currentUser = {
+        name: username,
+        email: emailInput
+    };
+
+    showToast(`Welcome back, ${currentUser.name}!`, 'success');
+    closeModal('loginModal');
+
+    updateUserUI();
+
+    event.target.reset();
+}
+
+function logout() {
+    currentUser = null;
+    showToast('Logged out successfully.', 'info');
+    updateUserUI();
+}
+
+function updateUserUI() {
+    const loginBtn = document.getElementById('loginBtn');
+    const userProfile = document.getElementById('userProfile');
+    const userAvatar = document.getElementById('userAvatar');
+    const userName = document.getElementById('userName');
+    
+    if (currentUser) {
+
+        loginBtn.style.display = 'none';
+        userProfile.style.display = 'flex';
+  
+        userName.innerText = currentUser.name;
+        userAvatar.innerText = currentUser.name.charAt(0).toUpperCase();
+    } else {
+        loginBtn.style.display = 'block';
+        userProfile.style.display = 'none';
+    }
+}
+
+updateUserUI();
