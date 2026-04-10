@@ -382,6 +382,7 @@ let currentSubtotal = 0;
 const shippingFee = 5.00; 
 let currentDiscount = 0;
 
+// 修改 script.js 中的 checkout 函数
 function checkout() {
     const selectedItems = cart.filter(item => item.selected);
     if (selectedItems.length === 0) {
@@ -389,39 +390,31 @@ function checkout() {
         return;
     }
     
-    const checkoutItemsList = document.getElementById('checkoutItemsList');
-    currentSubtotal = 0;
+    // 将选中的商品和当前的主购物车数据存入 localStorage
+    localStorage.setItem('checkoutItems', JSON.stringify(selectedItems));
+    localStorage.setItem('mainCart', JSON.stringify(cart)); // 备份主购物车，方便支付成功后更新
     
-    checkoutItemsList.innerHTML = '';
-    
-    selectedItems.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        currentSubtotal += itemTotal;
-        let statusTag = item.status === 'pre-order' ? '<span style="color:#e67e22;">[Pre-Order]</span> ' : '';
-        
-        checkoutItemsList.innerHTML += `
-            <div class="checkout-item">
-                <img src="${item.img}" alt="${item.name}" class="checkout-item-img">
-                <div class="checkout-item-info">
-                    <div class="checkout-item-name">${statusTag}${item.name}</div>
-                    <div class="checkout-item-qty">Qty: ${item.qty}</div>
-                </div>
-                <div class="checkout-item-price">RM${itemTotal.toFixed(2)}</div>
-            </div>
-        `;
-    });
-    
-    currentDiscount = 0; 
-    document.getElementById('voucherCode').value = '';
-    document.getElementById('discountLine').style.display = 'none';
-    document.getElementById('shippingAddress').value = '';
-    document.getElementById('orderRemarks').value = '';
-    
-    updateCheckoutTotals();
-    
+    // 关闭购物车弹窗并跳转到结账页面
     closeModal('cartModal');
-    openModal('checkoutModal');
+    window.location.href = 'checkout.html';
 }
+
+// 补充：在 script.js 顶部添加一个页面加载时的检查
+// 如果从结账页面成功支付返回，需要清理购物车里已经买过的东西
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('paymentSuccess') === 'true') {
+        // 清理已购买的商品
+        cart = cart.filter(item => !item.selected);
+        updateCartUI();
+        localStorage.removeItem('paymentSuccess'); // 清除标记
+    } else {
+        // 尝试从本地存储恢复购物车（可选功能，如果你想做持久化的话）
+        const savedCart = localStorage.getItem('mainCart');
+        if (savedCart) {
+            // cart = JSON.parse(savedCart); // 如果需要持久化主购物车，取消注释这行
+        }
+    }
+});
 
 function updateCheckoutTotals() {
     document.getElementById('checkoutSubtotal').innerText = `RM${currentSubtotal.toFixed(2)}`;

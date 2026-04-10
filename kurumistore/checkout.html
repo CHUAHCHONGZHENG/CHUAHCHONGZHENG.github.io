@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout - KURUMI Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray"> <header class="checkout-header">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo"> KURUMI STORE <span style="color:#666; font-size:16px; margin-left:10px;">| Secure Checkout</span>
+        </a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+    </header>
+
+    <main class="checkout-page-container">
+        <div class="checkout-form-section">
+            <div class="checkout-card">
+                <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+                <input type="text" id="shippingAddress" class="input-field" placeholder="Enter your full shipping address..." required>
+            </div>
+
+            <div class="checkout-card">
+                <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="TNG" checked> 
+                        <img src="tnglogo.png" alt="TNG"  style="width:30px;"> Touch 'n Go eWallet
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="VISA"> 
+                        <img src="visalogo.png" alt="VISA"  style="width:30px;"> Credit/Debit Card
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="COD"> 
+                        <i class="fas fa-truck" style="width:30px; text-align:center; color:#555;"></i> Cash on Delivery (COD)
+                    </label>
+                </div>
+            </div>
+
+            <div class="checkout-card">
+                <h3><i class="fas fa-comment-dots"></i> Remarks for Seller</h3>
+                <input type="text" id="orderRemarks" class="input-field" placeholder="Any special requests? (e.g., Please pack securely)">
+            </div>
+        </div>
+        
+        <div class="checkout-summary-section">
+            <div class="checkout-card sticky-summary">
+                <h3>Order Summary</h3>
+                
+                <div id="checkoutItemsList" class="checkout-items-full-list"></div>
+                
+                <div class="voucher-box">
+                    <input type="text" id="voucherCode" placeholder="Enter Code (Try 'SEGA10')">
+                    <button onclick="applyVoucher()">Apply</button>
+                </div>
+
+                <div class="summary-details">
+                    <div class="summary-line"><span>Subtotal:</span> <span id="checkoutSubtotal">RM0.00</span></div>
+                    <div class="summary-line"><span>Shipping Fee:</span> <span id="checkoutShipping">RM5.00</span></div>
+                    <div class="summary-line discount-line" id="discountLine"><span>Voucher Discount:</span> <span id="checkoutDiscount">-RM0.00</span></div>
+                </div>
+                
+                <div class="summary-total"><span>Total Payment:</span> <span id="checkoutFinalTotal" style="color: var(--danger-color);">RM0.00</span></div>
+                <button class="btn btn-submit btn-checkout-large" onclick="processPayment()">Confirm & Pay</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your order is currently being processed and will be shipped soon.</p>
+            <div class="success-details" id="successDetails"></div>
+            <button class="btn btn-submit" onclick="returnToHome()">Back to Home</button>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="checkout.js"></script>
+</body>
+</html>

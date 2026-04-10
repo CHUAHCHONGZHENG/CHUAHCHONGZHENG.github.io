@@ -186,65 +186,7 @@
             <div id="favItemsContainer"></div>
         </div>
     </div>
-    <div class="modal-overlay" id="checkoutModal">
-        <div class="modal checkout-modal">
-            <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
-            <h2>Checkout</h2>
-            <div class="checkout-container">
-                
-                <div class="checkout-form">
-                    <h3>Shipping Address</h3>
-                    <textarea id="shippingAddress" rows="3" placeholder="Enter your full shipping address (e.g., 123 SEGA Street, Gaming City)..." required></textarea>
-
-                    <h3>Payment Method</h3>
-                    <div class="payment-methods">
-                        <label class="payment-option">
-                            <input type="radio" name="payment" value="TNG" checked> 
-                            <img src="tnglogo.png" alt="TNG" style="border-radius:2px; width:30px;"> Touch 'n Go eWallet
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="payment" value="VISA"> 
-                            <img src="visalogo.png" alt="VISA" style="border-radius:2px; width:30px;"> Credit/Debit Card
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="payment" value="COD"> 
-                            <i class="fas fa-truck" style="width:30px; text-align:center; color:#555;"></i> Cash on Delivery (COD)
-                        </label>
-                    </div>
-
-                    <h3>Remarks for Seller</h3>
-                    <input type="text" id="orderRemarks" placeholder="Any special requests? (e.g., Please pack securely)">
-                </div>
-                
-                <div class="checkout-summary">
-                    <h3>Order Summary</h3>
-                    
-                    <div id="checkoutItemsList" class="checkout-items-list"></div>
-                    <div class="summary-line"><span>Subtotal:</span> <span id="checkoutSubtotal">RM0.00</span></div>
-                    <div class="summary-line"><span>Shipping Fee:</span> <span id="checkoutShipping">RM5.00</span></div>
-                    <div class="summary-line discount-line" id="discountLine"><span>Voucher Discount:</span> <span id="checkoutDiscount">-RM0.00</span></div>
-                    
-                    <div class="voucher-box">
-                        <input type="text" id="voucherCode" placeholder="Enter Code (Try 'SEGA10')">
-                        <button onclick="applyVoucher()">Apply</button>
-                    </div>
-                    
-                    <div class="summary-total"><span>Total Payment:</span> <span id="checkoutFinalTotal">RM0.00</span></div>
-                    <button class="btn btn-submit btn-checkout" onclick="processPayment()">Confirm & Pay</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-overlay" id="successModal">
-        <div class="modal success-modal">
-            <i class="fas fa-check-circle success-icon"></i>
-            <h2>Payment Successful!</h2>
-            <p>Thank you for your purchase. Your order is currently being processed and will be shipped soon.</p>
-            <div class="success-details" id="successDetails">
-                </div>
-            <button class="btn btn-submit" onclick="backToHome()">Back to Home</button>
-        </div>
-    </div>
+   
     <div id="toastContainer" class="toast-container"></div>
     <script src="script.js"></script>
 </body>
